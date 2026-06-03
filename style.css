@@ -1,0 +1,30 @@
+/* --- ESTILOS DEL CONTENEDOR (FLEXBOX) --- */
+.contenedor-panel {
+    display: flex;             /* 1. Activa la magia de Flexbox */
+    flex-wrap: wrap;           /* 2. Permite que las tarjetas bajen de línea si no caben (Responsive) */
+    justify-content: center;   /* 3. Centra las tarjetas horizontalmente */
+    gap: 20px;                 /* 4. Crea un espacio de 20px entre las tarjetas */
+    padding: 20px;
+}
+
+/* --- ESTILOS DE LA TARJETA --- */
+.tarjeta {
+    background-color: #ffffff;
+    border-radius: 15px;       /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Una sombra suave para dar relieve */
+    padding: 30px;
+    width: 250px;              /* Ancho fijo base */
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.tarjeta h2 {
+    color: #333333;
+    margin-top: 0;
+}
+
+.tarjeta p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;            /* Color azul para resaltar los números */
+}
