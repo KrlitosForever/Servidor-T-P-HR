@@ -1,20 +1,23 @@
 # 1. Usamos una imagen oficial de Python ligera
 FROM python:3.11-slim
 
-# 2. Le decimos a Docker en qué carpeta de la "computadora virtual" vamos a trabajar
+# NUEVO: Instalamos la librería del sistema para los pines GPIO
+RUN apt-get update && apt-get install -y libgpiod2 && rm -rf /var/lib/apt/lists/*
+
+# 2. Le decimos a Docker en qué carpeta trabajar
 WORKDIR /app
 
-# 3. Copiamos el archivo de requisitos a la carpeta de trabajo
+# 3. Copiamos el archivo de requisitos
 COPY requirements.txt .
 
-# 4. Instalamos las dependencias
+# 4. Instalamos las dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 5. Copiamos el código de nuestra API al contenedor
+# 5. Copiamos el código
 COPY main.py .
 
-# 6. Exponemos el puerto 8000 para que podamos conectarnos
+# 6. Exponemos el puerto
 EXPOSE 8000
 
-# 7. El comando para encender el servidor cuando arranque el contenedor
+# 7. El comando para encender el servidor
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
