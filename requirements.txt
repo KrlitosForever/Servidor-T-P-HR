@@ -3,3 +3,4 @@ uvicorn
 adafruit-blinka
 adafruit-circuitpython-ahtx0
 adafruit-circuitpython-bmp280
+RPi.GPIO
