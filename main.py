@@ -29,17 +29,17 @@ def obtener_datos():
     temp_real = round(sensor_aht.temperature, 1)
     hum_real = round(sensor_aht.relative_humidity, 1)
     pre_real = round(sensor_bmp.pressure, 1)
-    return {"temperatura": temp_real, "humedad": hum_real, "presion": pre_real}
+    return {"temperature": temp_real, "humidity": hum_real, "pressure": pre_real}
 
 @app.get("/temperatura")
 def obtener_temperatura():
-    return {"temperatura": round(sensor_aht.temperature, 1)}
+    return {"temperature": round(sensor_aht.temperature, 1)}
 
 @app.get("/humedad")
 def obtener_humedad():
-    return {"humedad": round(sensor_aht.relative_humidity, 1)}
+    return {"humidity": round(sensor_aht.relative_humidity, 1)}
 
 # Como bonus, ¡ahora también tienes un barómetro gracias al BMP280!
 @app.get("/presion")
 def obtener_presion():
-    return {"presion": round(sensor_bmp.pressure, 1)}
+    return {"pressure": round(sensor_bmp.pressure, 1)}
